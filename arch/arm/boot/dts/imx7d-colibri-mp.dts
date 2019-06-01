@@ -80,7 +80,7 @@
 &i2c4 {
 	status = "okay";
 	codec_mp: mp_clkgen@75 {
-		compatible = "mp,codec-clkgen";
+		compatible = "mp,mp-clkgen";
 		#sound-dai-cells = <0>;
 		reg = <0x75>;
 	};

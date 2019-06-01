@@ -12,38 +12,38 @@
 #include <linux/regmap.h>
 #include <sound/soc.h>
 
-/* MP codec private structure */
-struct mp_codec_priv {
-	int fmt;	/* i2s data format */
+struct mp2019_codec_priv {
+	int fmt;
 	int current_clock;
-    int current_regmap;
+	int current_regmap;
 	struct regmap *clkgen_regmap;
 	struct regmap *oscsel_regmap;
-    struct regmap *lcd_regmap;
+	struct regmap *lcd_regmap;
 };
 
 
-static inline void enable_DFXO_451584(struct snd_soc_codec *codec)
+
+static inline void enable_DFXO_451584(struct mp2019_codec_priv *mp)
 {
-	struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
+	
 	if(mp->current_clock != 3) {
 		mp->current_clock = 3;
 		regmap_write(mp->oscsel_regmap, 0x01, 0xf9);
 	}
 }
 
-static inline void enable_DFXO_49152(struct snd_soc_codec *codec)
+static inline void enable_DFXO_49152(struct mp2019_codec_priv *mp)
 {
-	struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
+	
 	if(mp->current_clock != 2) {
 		mp->current_clock = 2;
 		regmap_write(mp->oscsel_regmap, 0x01, 0xfa);
 	}
 }
 
-static inline void enable_OCXO(struct snd_soc_codec *codec)
+static inline void enable_OCXO(struct mp2019_codec_priv *mp)
 {
-	struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
+	
     int clock;
     clock = mp->current_clock;
     pr_warn("BEGIN enable_OCXO");
@@ -83,13 +83,13 @@ static inline void clkgen_regmap_write(struct regmap *regmap, unsigned int reg, 
 }
 
 /* default value of I2C registers for OSCSEL */
-static const struct reg_default mp_oscsel_reg_defaults[] = {
+static const struct reg_default mp2019_oscsel_reg_defaults[] = {
 		{ 0x03,		0xf0 },
         { 0x01,		0xfc },
 };
 
 /* default value of I2C registers for CLKGEN */
-static const struct reg_default mp_codec_reg_defaults[] = {
+static const struct reg_default mp2019_codec_reg_defaults[] = {
         {0x0B24,0xC0},
         {0x0B25,0x00},
 		{0x0502,0x01},
@@ -139,14 +139,16 @@ static const struct reg_default mp_codec_reg_defaults[] = {
 		{0x011A,0x08},
 		{0x0126,0x02},
 		{0x0127,0x09},
-		// {0x0128,0x6B},
-        // LVDS
+		/* {0x0128,0x6B},
+        LVDS
+        */
         {0x0128,0x33},
-        // ----
-        // {0x0129,0x08},
-        // LVDS
+        /* ----
+         {0x0129,0x08},
+         LVDS
+        */
 		{0x0129,0x08},
-        // ----
+        /* ---- */
 		{0x012B,0x02},
 		{0x012C,0xCC},
 		{0x012D,0x00},
@@ -422,7 +424,7 @@ static const struct reg_default mp_codec_reg_defaults[] = {
 		{0x001C,0x01},
 		{0x0B24,0xC3},
 		{0x0B25,0x02},
-        //
+        /* */
         {0x0B24, 0xC0},
         {0x0B25, 0x00},
         {0x0502, 0x01},
@@ -470,10 +472,10 @@ static const struct reg_default mp_codec_reg_defaults[] = {
         {0x0B25, 0x02},
 };
 
-static inline void clkgen_regmap_01(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_01(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 1)
     {
@@ -527,10 +529,10 @@ static inline void clkgen_regmap_01(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_02(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_02(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 2)
     {
@@ -584,12 +586,12 @@ static inline void clkgen_regmap_02(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_03(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_03(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
+    
     pr_warn("   ***  clkgen_regmap_03");
 
-    enable_OCXO(codec);
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 3)
     {
@@ -643,13 +645,13 @@ static inline void clkgen_regmap_03(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_04(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_04(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
+    
     pr_warn("   ***  clkgen_regmap_04");
 
-    enable_OCXO(codec);
-    pr_warn("   POST enable_OCXO(codec);");
+    enable_OCXO(mp);
+    pr_warn("   POST enable_OCXO(mp);");
     if(mp->current_regmap != 4)
     {
         mp->current_regmap = 4;
@@ -702,10 +704,10 @@ static inline void clkgen_regmap_04(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_05(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_05(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 5)
     {
@@ -759,12 +761,12 @@ static inline void clkgen_regmap_05(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_06(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_06(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
+    
     pr_warn("   ***  clkgen_regmap_06");
 
-    enable_OCXO(codec);
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 6)
     {
@@ -818,10 +820,10 @@ static inline void clkgen_regmap_06(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_07(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_07(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 7)
     {
@@ -875,10 +877,10 @@ static inline void clkgen_regmap_07(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_08(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_08(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 8)
     {
@@ -932,10 +934,10 @@ static inline void clkgen_regmap_08(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_09(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_09(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 9)
     {
@@ -989,10 +991,10 @@ static inline void clkgen_regmap_09(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_10(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_10(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 10)
     {
@@ -1046,10 +1048,10 @@ static inline void clkgen_regmap_10(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_11(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_11(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 11)
     {
@@ -1102,10 +1104,10 @@ static inline void clkgen_regmap_11(struct snd_soc_codec *codec)
     }
 }
 
-static inline void clkgen_regmap_12(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_12(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 12)
     {
@@ -1159,10 +1161,10 @@ static inline void clkgen_regmap_12(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_13(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_13(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 13)
     {
@@ -1216,10 +1218,10 @@ static inline void clkgen_regmap_13(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_14(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_14(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 14)
     {
@@ -1273,10 +1275,10 @@ static inline void clkgen_regmap_14(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_15(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_15(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 15)
     {
@@ -1330,10 +1332,10 @@ static inline void clkgen_regmap_15(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_16(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_16(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 16)
     {
@@ -1387,10 +1389,10 @@ static inline void clkgen_regmap_16(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_17(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_17(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 17)
     {
@@ -1444,10 +1446,10 @@ static inline void clkgen_regmap_17(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_18(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_18(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 18)
     {
@@ -1501,10 +1503,10 @@ static inline void clkgen_regmap_18(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_19(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_19(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 19)
     {
@@ -1558,10 +1560,10 @@ static inline void clkgen_regmap_19(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_20(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_20(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 20)
     {
@@ -1615,10 +1617,10 @@ static inline void clkgen_regmap_20(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_21(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_21(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 21)
     {
@@ -1672,10 +1674,10 @@ static inline void clkgen_regmap_21(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_22(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_22(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 22)
     {
@@ -1729,10 +1731,10 @@ static inline void clkgen_regmap_22(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_23(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_23(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 23)
     {
@@ -1786,10 +1788,10 @@ static inline void clkgen_regmap_23(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_24(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_24(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 24)
     {
@@ -1843,10 +1845,10 @@ static inline void clkgen_regmap_24(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_25(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_25(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 25)
     {
@@ -1900,10 +1902,10 @@ static inline void clkgen_regmap_25(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_26(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_26(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 26)
     {
@@ -1957,10 +1959,10 @@ static inline void clkgen_regmap_26(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_27(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_27(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 27)
     {
@@ -2014,10 +2016,10 @@ static inline void clkgen_regmap_27(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_28(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_28(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 28)
     {
@@ -2071,10 +2073,10 @@ static inline void clkgen_regmap_28(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_29(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_29(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 29)
     {
@@ -2128,10 +2130,10 @@ static inline void clkgen_regmap_29(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_30(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_30(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_OCXO(codec);
+    
+    enable_OCXO(mp);
 
     if(mp->current_regmap != 30)
     {
@@ -2185,10 +2187,10 @@ static inline void clkgen_regmap_30(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_31(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_31(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 31)
     {
@@ -2242,10 +2244,10 @@ static inline void clkgen_regmap_31(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_32(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_32(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 32)
     {
@@ -2299,10 +2301,10 @@ static inline void clkgen_regmap_32(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_33(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_33(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 33)
     {
@@ -2356,10 +2358,10 @@ static inline void clkgen_regmap_33(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_34(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_34(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 34)
     {
@@ -2413,10 +2415,10 @@ static inline void clkgen_regmap_34(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_35(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_35(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 35)
     {
@@ -2470,10 +2472,10 @@ static inline void clkgen_regmap_35(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_36(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_36(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 36)
     {
@@ -2527,10 +2529,10 @@ static inline void clkgen_regmap_36(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_37(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_37(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 37)
     {
@@ -2584,10 +2586,10 @@ static inline void clkgen_regmap_37(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_38(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_38(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 38)
     {
@@ -2641,10 +2643,10 @@ static inline void clkgen_regmap_38(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_39(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_39(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 39)
     {
@@ -2698,10 +2700,10 @@ static inline void clkgen_regmap_39(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_40(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_40(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 40)
     {
@@ -2755,10 +2757,10 @@ static inline void clkgen_regmap_40(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_41(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_41(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 41)
     {
@@ -2812,10 +2814,10 @@ static inline void clkgen_regmap_41(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_42(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_42(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 42)
     {
@@ -2869,10 +2871,10 @@ static inline void clkgen_regmap_42(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_43(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_43(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 43)
     {
@@ -2926,10 +2928,10 @@ static inline void clkgen_regmap_43(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_44(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_44(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 44)
     {
@@ -2983,10 +2985,10 @@ static inline void clkgen_regmap_44(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_45(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_45(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_451584(codec);
+    
+    enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 45)
     {
@@ -3040,10 +3042,10 @@ static inline void clkgen_regmap_45(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_46(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_46(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 46)
     {
@@ -3097,10 +3099,10 @@ static inline void clkgen_regmap_46(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_47(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_47(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 47)
     {
@@ -3154,10 +3156,10 @@ static inline void clkgen_regmap_47(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_48(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_48(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 48)
     {
@@ -3211,10 +3213,10 @@ static inline void clkgen_regmap_48(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_49(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_49(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 49)
     {
@@ -3268,10 +3270,10 @@ static inline void clkgen_regmap_49(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_50(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_50(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 50)
     {
@@ -3325,10 +3327,10 @@ static inline void clkgen_regmap_50(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_51(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_51(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 51)
     {
@@ -3382,10 +3384,10 @@ static inline void clkgen_regmap_51(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_52(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_52(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 52)
     {
@@ -3439,10 +3441,10 @@ static inline void clkgen_regmap_52(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_53(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_53(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 53)
     {
@@ -3496,10 +3498,10 @@ static inline void clkgen_regmap_53(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_54(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_54(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 54)
     {
@@ -3553,10 +3555,10 @@ static inline void clkgen_regmap_54(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_55(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_55(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 55)
     {
@@ -3610,10 +3612,10 @@ static inline void clkgen_regmap_55(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_56(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_56(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 56)
     {
@@ -3667,10 +3669,10 @@ static inline void clkgen_regmap_56(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_57(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_57(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 57)
     {
@@ -3724,10 +3726,10 @@ static inline void clkgen_regmap_57(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_58(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_58(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 58)
     {
@@ -3781,10 +3783,10 @@ static inline void clkgen_regmap_58(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_59(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_59(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 59)
     {
@@ -3838,10 +3840,10 @@ static inline void clkgen_regmap_59(struct snd_soc_codec *codec)
 }
 
 
-static inline void clkgen_regmap_60(struct snd_soc_codec *codec)
+static inline void clkgen_regmap_60(struct mp2019_codec_priv *mp)
 {
-    struct mp_codec_priv *mp = snd_soc_codec_get_drvdata(codec);
-    enable_DFXO_49152(codec);
+    
+    enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 60)
     {

@@ -416,7 +416,7 @@ static int mp2019_oscsel_i2c_probe(struct i2c_client *i2c,
 	i2c_set_clientdata(i2c, mp);
 	dev_warn(&i2c->dev, "    BEGIN i2c_set_clientdata(client, mp);");
 
-	dev_warn(&i2c->dev, "BEGIN snd_soc_register_codec");
+	dev_warn(&i2c->dev, "BEGIN devm_snd_soc_register_component");
 
 	/*
 	if(maxrate == 768) {
@@ -445,11 +445,14 @@ static int mp2019_oscsel_i2c_probe(struct i2c_client *i2c,
 	 			     &mp2019_dai, 1);
 	*/
 
-	ret = devm_snd_soc_register_component(&i2c->dev,
+	dev_warn(&i2c->dev, "    client->dev");
+	dev_warn(&clkgen_client->dev, "    &clkgen_client->dev");
+
+	ret = devm_snd_soc_register_component(&clkgen_client->dev,
 			&soc_component_dev_mp2019, &mp2019_dai, 1);
 	
 
-		dev_warn(&i2c->dev, "END snd_soc_register_codec");
+		dev_warn(&i2c->dev, "END devm_snd_soc_register_component");
 	if (ret)
 		return ret;
 
@@ -572,7 +575,7 @@ MODULE_DEVICE_TABLE(i2c, mp2019_codec_id);
 static struct i2c_driver mp2019_i2c_driver = {
 	.driver =
 		{
-			.name = "mp2019",
+			.name = "mp_clkgen",
 			.of_match_table = mp2019_of_match,
 		},
 	.probe = mp2019_i2c_probe,

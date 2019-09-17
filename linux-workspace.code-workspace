@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"audio_codec.h": "c",
+			"i2c.h": "c"
+		}
+	}
+}

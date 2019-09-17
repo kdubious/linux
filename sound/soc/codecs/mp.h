@@ -35,6 +35,7 @@ int mp2019_common_init(struct device *dev, struct regmap *regmap);
 static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 									   int frame_width)
 {
+	int nextFamily;
 	struct snd_soc_component *component = dai->component;
 	struct mp2019_codec_priv *mp = snd_soc_component_get_drvdata(component);
 
@@ -45,6 +46,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 	switch (frame_rate)
 	{
 	case 44100:
+		nextFamily = 48;
 		switch (frame_width)
 		{
 		case 16:
@@ -62,6 +64,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 48000:
+		nextFamily = 48;
 		switch (frame_width)
 		{
 		case 16:
@@ -79,6 +82,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 88200:
+		nextFamily = 96;
 		switch (frame_width)
 		{
 		case 16:
@@ -96,6 +100,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 96000:
+		nextFamily = 96;
 		switch (frame_width)
 		{
 		case 16:
@@ -113,6 +118,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 176400:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -130,6 +136,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 192000:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -147,6 +154,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 352800:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -164,6 +172,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 384000:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -181,6 +190,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 705600:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -198,6 +208,7 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 768000:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -218,6 +229,24 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		dev_err(component->dev, "frame rate %d not supported\n",
 				frame_rate);
 		return -EINVAL;
+	}
+
+	if(nextFamily != mp->family) {
+
+		regmap_write(mp->aes_regmap, 0x03, 0x83);
+		switch (nextFamily)
+		{
+		case 48:
+			regmap_write(mp->aes_regmap, 0x03, 0x37);
+			break;
+		case 96:
+			regmap_write(mp->aes_regmap, 0x03, 0x17);
+			break;
+		case 192:
+			regmap_write(mp->aes_regmap, 0x03, 0x07);
+			break;
+		}
+		mp->family = nextFamily;	
 	}
 	return 0;
 }

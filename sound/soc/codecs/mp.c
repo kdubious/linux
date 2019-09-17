@@ -16,6 +16,7 @@
 #include <linux/regmap.h>
 #include <linux/of_device.h>
 #include <linux/kernel.h>
+#include <linux/regmap.h>
 #include <sound/core.h>
 #include <sound/pcm.h>
 #include <sound/pcm_params.h>
@@ -215,6 +216,14 @@ static const struct regmap_config mp2019_lcd_regmap_config = {
 };
 EXPORT_SYMBOL_GPL(mp2019_lcd_regmap_config);
 
+static const struct regmap_config mp2019_aes_regmap_config = {
+	.reg_bits = 16,
+	.val_bits = 24,
+	.max_register = 0xFFFF,
+	.cache_type = REGCACHE_RBTREE,
+};
+EXPORT_SYMBOL_GPL(mp2019_aes_regmap_config);
+
 static const struct regmap_config mp2019_clock_regmap_config = {
 	.reg_bits = 8,
 	.val_bits = 8,
@@ -378,6 +387,81 @@ static struct i2c_driver mp2019_lcd_i2c_driver = {
 
 /* END LCD DRIVER */
 
+
+/* AES DRIVER */
+
+static int mp2019_aes_i2c_probe(struct i2c_client *i2c,
+			    const struct i2c_device_id *id)
+{
+	struct device_node *clkgen_np;
+	struct i2c_client *clkgen_client;
+	struct mp2019_codec_priv *mp;
+	int ret;
+
+	dev_warn(&i2c->dev, "BEGIN mp2019_aes_i2c_probe");
+
+	clkgen_np = of_parse_phandle(i2c->dev.of_node, "mp,clkgen", 0);
+	if (!clkgen_np) {
+		dev_err(&i2c->dev,
+			"Failed to get clock generator phandle\n");
+		return -ENODEV;
+	}
+	clkgen_client = of_find_i2c_device_by_node(clkgen_np);
+	of_node_put(clkgen_np);
+	if (!clkgen_client) {
+		dev_dbg(&i2c->dev, "Clock generator I2C client not found\n");
+		return -EPROBE_DEFER;
+	}
+	mp = i2c_get_clientdata(clkgen_client);
+	put_device(&clkgen_client->dev);
+	mp->aes_regmap = devm_regmap_init_i2c(i2c, &mp2019_aes_regmap_config);
+	if (IS_ERR(mp->aes_regmap)) {
+		ret = PTR_ERR(mp->aes_regmap);
+		dev_err(&i2c->dev, "Failed to allocate aes regmap: %d\n",
+			ret);
+		return ret;
+	}
+
+	i2c_set_clientdata(i2c, mp);
+
+	dev_warn(&i2c->dev, "END mp2019_aes_i2c_probe");
+
+	return 0;
+}
+
+static int mp2019_aes_i2c_remove(struct i2c_client *i2c)
+{
+	return 0;
+}
+
+static const struct i2c_device_id mp2019_aes_id[] = {
+	{ "mp2019_aes", 0 },
+	{ },
+};
+
+MODULE_DEVICE_TABLE(i2c, mp2019_aes_id);
+
+static const struct of_device_id mp2019_aes_dt_ids[] = {
+	{
+		.compatible = "mp,codec-aes",
+	},
+	{ }
+};
+MODULE_DEVICE_TABLE(of, mp2019_aes_dt_ids);
+
+static struct i2c_driver mp2019_aes_i2c_driver = {
+	.driver =
+		{
+			.name = "mp2019_aes",
+			.of_match_table = mp2019_aes_dt_ids,
+		},
+	.probe = mp2019_aes_i2c_probe,
+	.remove = mp2019_aes_i2c_remove,
+	.id_table = mp2019_aes_id,
+};
+
+/* END AES DRIVER */
+
 /* mp2019 I2C */
 static int mp2019_oscsel_i2c_probe(struct i2c_client *i2c,
 			       const struct i2c_device_id *id)
@@ -456,22 +540,29 @@ static int mp2019_oscsel_i2c_probe(struct i2c_client *i2c,
 	if (ret)
 		return ret;
 
-	dev_warn(&i2c->dev, "    BEGIN default OSCSEL regs");
+	dev_warn(&i2c->dev, "    BEGIN default LCD regs");
+	dev_warn(&i2c->dev, "    END default LCD regs");
 
+	dev_warn(&i2c->dev, "    BEGIN default AES regs");
+	for (i = 0; i < ARRAY_SIZE(mp2019_aes_reg_defaults); i++) {
+		regmap_write(mp->aes_regmap, mp2019_aes_reg_defaults[i].reg,
+			     mp2019_aes_reg_defaults[i].def);
+	}
+	dev_warn(&i2c->dev, "    END default AES regs");
+
+	dev_warn(&i2c->dev, "    BEGIN default OSCSEL regs");
 	for (i = 0; i < ARRAY_SIZE(mp2019_oscsel_reg_defaults); i++) {
 		regmap_write(mp->oscsel_regmap, mp2019_oscsel_reg_defaults[i].reg,
 			     mp2019_oscsel_reg_defaults[i].def);
 	}
-
 	dev_warn(&i2c->dev, "    END default OSCSEL regs");
-	dev_warn(&i2c->dev, "    BEGIN default CLKGEN regs");
 
+	dev_warn(&i2c->dev, "    BEGIN default CLKGEN regs");
 	for (i = 0; i < ARRAY_SIZE(mp2019_codec_reg_defaults); i++) {
 		clkgen_regmap_write(mp->clkgen_regmap,
 				    mp2019_codec_reg_defaults[i].reg,
 				    mp2019_codec_reg_defaults[i].def);
 	}
-
 	dev_warn(&i2c->dev, "    END default CLKGEN regs");
 
 	dev_warn(&i2c->dev, "END mp2019_oscsel_i2c_probe");
@@ -595,8 +686,14 @@ static int __init mp2019_codec_init(void)
 	if (ret) {
 		i2c_del_driver(&mp2019_i2c_driver);
 	}
+	ret = i2c_add_driver(&mp2019_aes_i2c_driver);
+	if (ret) {
+		i2c_del_driver(&mp2019_oscsel_i2c_driver);
+		i2c_del_driver(&mp2019_i2c_driver);
+	}
 	ret = i2c_add_driver(&mp2019_lcd_i2c_driver);
 	if (ret) {
+		i2c_del_driver(&mp2019_aes_i2c_driver);
 		i2c_del_driver(&mp2019_oscsel_i2c_driver);
 		i2c_del_driver(&mp2019_i2c_driver);
 	}
@@ -607,6 +704,7 @@ module_init(mp2019_codec_init);
 static void __exit mp2019_codec_exit(void)
 {
 	i2c_del_driver(&mp2019_lcd_i2c_driver);
+	i2c_del_driver(&mp2019_aes_i2c_driver);
 	i2c_del_driver(&mp2019_oscsel_i2c_driver);
 	i2c_del_driver(&mp2019_i2c_driver);
 }

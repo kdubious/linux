@@ -89,6 +89,11 @@
 		mp,clkgen = <&codec_mp>;
 		reg = <0x41>;
 	};
+	codec_aes: mp_aes@20 {
+		compatible = "mp,codec-aes";
+		mp,clkgen = <&codec_mp>;
+		reg = <0x20>;
+	};
 	codec_lcd: mp_lcd@76 {
 		compatible = "mp,codec-lcd";
 		mp,clkgen = <&codec_mp>;

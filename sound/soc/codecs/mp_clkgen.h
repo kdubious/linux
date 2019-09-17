@@ -434,7 +434,6 @@ static const struct reg_default mp2019_codec_reg_defaults[] = {
 
 static inline void clkgen_regmap_01(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 1)
@@ -457,29 +456,36 @@ static inline void clkgen_regmap_01(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x13);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x4F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -491,7 +497,6 @@ static inline void clkgen_regmap_01(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_02(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 2)
@@ -514,6 +519,7 @@ static inline void clkgen_regmap_02(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -524,7 +530,7 @@ static inline void clkgen_regmap_02(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x17);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x7F);
@@ -533,10 +539,16 @@ static inline void clkgen_regmap_02(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -548,9 +560,6 @@ static inline void clkgen_regmap_02(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_03(struct mp2019_codec_priv *mp)
 {
-    
-    pr_warn("   ***  clkgen_regmap_03");
-
     enable_OCXO(mp);
 
     if(mp->current_regmap != 3)
@@ -573,29 +582,36 @@ static inline void clkgen_regmap_03(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x1F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x13);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x9F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -607,11 +623,8 @@ static inline void clkgen_regmap_03(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_04(struct mp2019_codec_priv *mp)
 {
-    
-    pr_warn("   ***  clkgen_regmap_04");
-
     enable_OCXO(mp);
-    pr_warn("   POST enable_OCXO(mp);");
+
     if(mp->current_regmap != 4)
     {
         mp->current_regmap = 4;
@@ -632,29 +645,36 @@ static inline void clkgen_regmap_04(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x27);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x23);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x88);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -666,7 +686,6 @@ static inline void clkgen_regmap_04(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_05(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 5)
@@ -688,30 +707,37 @@ static inline void clkgen_regmap_05(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x68);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xB0);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xC9);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x08);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x1A);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x2F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xC9);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -723,9 +749,6 @@ static inline void clkgen_regmap_05(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_06(struct mp2019_codec_priv *mp)
 {
-    
-    pr_warn("   ***  clkgen_regmap_06");
-
     enable_OCXO(mp);
 
     if(mp->current_regmap != 6)
@@ -748,29 +771,36 @@ static inline void clkgen_regmap_06(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x27);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x23);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x88);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -782,7 +812,6 @@ static inline void clkgen_regmap_06(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_07(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 7)
@@ -805,29 +834,36 @@ static inline void clkgen_regmap_07(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x27);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -839,7 +875,6 @@ static inline void clkgen_regmap_07(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_08(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 8)
@@ -862,6 +897,7 @@ static inline void clkgen_regmap_08(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -872,7 +908,7 @@ static inline void clkgen_regmap_08(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x3F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x0B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x3F);
@@ -881,10 +917,16 @@ static inline void clkgen_regmap_08(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -896,7 +938,6 @@ static inline void clkgen_regmap_08(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_09(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 9)
@@ -919,29 +960,36 @@ static inline void clkgen_regmap_09(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x4F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -953,7 +1001,6 @@ static inline void clkgen_regmap_09(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_10(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 10)
@@ -976,29 +1023,36 @@ static inline void clkgen_regmap_10(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0xE0);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x4F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x46);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x88);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0xB3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1010,7 +1064,6 @@ static inline void clkgen_regmap_10(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_11(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 11)
@@ -1033,29 +1086,36 @@ static inline void clkgen_regmap_11(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xB0);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x27);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x23);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xC9);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1064,9 +1124,9 @@ static inline void clkgen_regmap_11(struct mp2019_codec_priv *mp)
     }
 }
 
+
 static inline void clkgen_regmap_12(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 12)
@@ -1089,29 +1149,36 @@ static inline void clkgen_regmap_12(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x27);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x23);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x88);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1123,7 +1190,6 @@ static inline void clkgen_regmap_12(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_13(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 13)
@@ -1146,29 +1212,36 @@ static inline void clkgen_regmap_13(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x13);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1180,7 +1253,6 @@ static inline void clkgen_regmap_13(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_14(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 14)
@@ -1203,6 +1275,7 @@ static inline void clkgen_regmap_14(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1213,7 +1286,7 @@ static inline void clkgen_regmap_14(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x1F);
@@ -1222,10 +1295,16 @@ static inline void clkgen_regmap_14(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1237,7 +1316,6 @@ static inline void clkgen_regmap_14(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_15(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 15)
@@ -1260,29 +1338,36 @@ static inline void clkgen_regmap_15(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x27);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1294,7 +1379,6 @@ static inline void clkgen_regmap_15(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_16(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 16)
@@ -1317,6 +1401,7 @@ static inline void clkgen_regmap_16(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1327,19 +1412,25 @@ static inline void clkgen_regmap_16(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x9F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x8C);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x5A);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1351,7 +1442,6 @@ static inline void clkgen_regmap_16(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_17(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 17)
@@ -1373,30 +1463,37 @@ static inline void clkgen_regmap_17(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xB0);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x27);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x23);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x0B);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x3F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xC9);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1408,7 +1505,6 @@ static inline void clkgen_regmap_17(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_18(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 18)
@@ -1431,29 +1527,36 @@ static inline void clkgen_regmap_18(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0xE0);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x88);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x4F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x46);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0xB3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1465,7 +1568,6 @@ static inline void clkgen_regmap_18(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_19(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 19)
@@ -1488,6 +1590,7 @@ static inline void clkgen_regmap_19(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1507,10 +1610,16 @@ static inline void clkgen_regmap_19(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1522,7 +1631,6 @@ static inline void clkgen_regmap_19(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_20(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 20)
@@ -1545,6 +1653,7 @@ static inline void clkgen_regmap_20(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1555,19 +1664,25 @@ static inline void clkgen_regmap_20(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0B);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x2D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0C);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1579,7 +1694,6 @@ static inline void clkgen_regmap_20(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_21(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 21)
@@ -1602,29 +1716,36 @@ static inline void clkgen_regmap_21(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x76);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x50);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x95);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x13);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x53);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1636,7 +1757,6 @@ static inline void clkgen_regmap_21(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_22(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 22)
@@ -1659,6 +1779,7 @@ static inline void clkgen_regmap_22(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1678,10 +1799,16 @@ static inline void clkgen_regmap_22(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1693,7 +1820,6 @@ static inline void clkgen_regmap_22(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_23(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 23)
@@ -1715,30 +1841,37 @@ static inline void clkgen_regmap_23(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0xE0);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xB0);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x4F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x46);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0xB3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x05);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xC9);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1750,7 +1883,6 @@ static inline void clkgen_regmap_23(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_24(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 24)
@@ -1773,6 +1905,7 @@ static inline void clkgen_regmap_24(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1783,19 +1916,25 @@ static inline void clkgen_regmap_24(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x9F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x8C);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x5A);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1807,7 +1946,6 @@ static inline void clkgen_regmap_24(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_25(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 25)
@@ -1830,6 +1968,7 @@ static inline void clkgen_regmap_25(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1840,7 +1979,7 @@ static inline void clkgen_regmap_25(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x04);
@@ -1849,10 +1988,16 @@ static inline void clkgen_regmap_25(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1864,7 +2009,6 @@ static inline void clkgen_regmap_25(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_26(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 26)
@@ -1887,6 +2031,7 @@ static inline void clkgen_regmap_26(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1897,7 +2042,7 @@ static inline void clkgen_regmap_26(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0xFA);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
@@ -1906,10 +2051,16 @@ static inline void clkgen_regmap_26(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1921,7 +2072,6 @@ static inline void clkgen_regmap_26(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_27(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 27)
@@ -1944,6 +2094,7 @@ static inline void clkgen_regmap_27(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -1963,10 +2114,16 @@ static inline void clkgen_regmap_27(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -1978,7 +2135,6 @@ static inline void clkgen_regmap_27(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_28(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 28)
@@ -2001,6 +2157,7 @@ static inline void clkgen_regmap_28(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -2011,7 +2168,7 @@ static inline void clkgen_regmap_28(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x05);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x0B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x05);
@@ -2020,10 +2177,16 @@ static inline void clkgen_regmap_28(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0B);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2035,7 +2198,6 @@ static inline void clkgen_regmap_28(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_29(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 29)
@@ -2058,29 +2220,36 @@ static inline void clkgen_regmap_29(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x9E);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0xB0);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x40);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x9C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x07);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xFF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x64);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0B);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xC9);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2092,7 +2261,6 @@ static inline void clkgen_regmap_29(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_30(struct mp2019_codec_priv *mp)
 {
-    
     enable_OCXO(mp);
 
     if(mp->current_regmap != 30)
@@ -2115,6 +2283,7 @@ static inline void clkgen_regmap_30(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -2134,10 +2303,16 @@ static inline void clkgen_regmap_30(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x03);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x88);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2149,7 +2324,6 @@ static inline void clkgen_regmap_30(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_31(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 31)
@@ -2165,36 +2339,43 @@ static inline void clkgen_regmap_31(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x30);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x10);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x2B);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x91);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2206,7 +2387,6 @@ static inline void clkgen_regmap_31(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_32(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 32)
@@ -2222,36 +2402,43 @@ static inline void clkgen_regmap_32(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x32);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x81);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x05);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x97);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x31);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2263,7 +2450,6 @@ static inline void clkgen_regmap_32(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_33(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 33)
@@ -2279,36 +2465,43 @@ static inline void clkgen_regmap_33(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x30);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x10);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x2B);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x91);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2320,7 +2513,6 @@ static inline void clkgen_regmap_33(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_34(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 34)
@@ -2336,36 +2528,43 @@ static inline void clkgen_regmap_34(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x21);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x56);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2377,7 +2576,6 @@ static inline void clkgen_regmap_34(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_35(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 35)
@@ -2393,36 +2591,43 @@ static inline void clkgen_regmap_35(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x32);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x81);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x97);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x31);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2434,7 +2639,6 @@ static inline void clkgen_regmap_35(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_36(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 36)
@@ -2450,36 +2654,43 @@ static inline void clkgen_regmap_36(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x30);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x10);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x2B);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x91);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2491,7 +2702,6 @@ static inline void clkgen_regmap_36(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_37(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 37)
@@ -2507,36 +2717,43 @@ static inline void clkgen_regmap_37(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x24);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2548,7 +2765,6 @@ static inline void clkgen_regmap_37(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_38(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 38)
@@ -2564,36 +2780,43 @@ static inline void clkgen_regmap_38(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x32);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x81);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x97);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x31);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2605,7 +2828,6 @@ static inline void clkgen_regmap_38(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_39(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 39)
@@ -2621,36 +2843,43 @@ static inline void clkgen_regmap_39(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x21);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x56);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2662,7 +2891,6 @@ static inline void clkgen_regmap_39(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_40(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 40)
@@ -2685,6 +2913,7 @@ static inline void clkgen_regmap_40(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
@@ -2704,10 +2933,16 @@ static inline void clkgen_regmap_40(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2719,7 +2954,6 @@ static inline void clkgen_regmap_40(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_41(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 41)
@@ -2735,36 +2969,43 @@ static inline void clkgen_regmap_41(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x65);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x97);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0xC3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x31);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2776,7 +3017,6 @@ static inline void clkgen_regmap_41(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_42(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 42)
@@ -2792,36 +3032,43 @@ static inline void clkgen_regmap_42(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xAC);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x87);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x58);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x24);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2833,7 +3080,6 @@ static inline void clkgen_regmap_42(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_43(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 43)
@@ -2855,7 +3101,8 @@ static inline void clkgen_regmap_43(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
@@ -2866,7 +3113,7 @@ static inline void clkgen_regmap_43(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
@@ -2875,10 +3122,16 @@ static inline void clkgen_regmap_43(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x49);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2890,7 +3143,6 @@ static inline void clkgen_regmap_43(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_44(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 44)
@@ -2906,36 +3158,43 @@ static inline void clkgen_regmap_44(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0021, 0x09);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x31);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x96);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x97);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x40);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x92);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x93);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xCB);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x04);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x61);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x97);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x09);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x31);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -2947,7 +3206,6 @@ static inline void clkgen_regmap_44(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_45(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_451584(mp);
 
     if(mp->current_regmap != 45)
@@ -2970,6 +3228,7 @@ static inline void clkgen_regmap_45(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x01);
@@ -2989,10 +3248,16 @@ static inline void clkgen_regmap_45(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x92);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x10);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x1E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3004,7 +3269,6 @@ static inline void clkgen_regmap_45(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_46(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 46)
@@ -3027,29 +3291,36 @@ static inline void clkgen_regmap_46(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x6F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x32);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3061,7 +3332,6 @@ static inline void clkgen_regmap_46(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_47(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 47)
@@ -3078,35 +3348,42 @@ static inline void clkgen_regmap_47(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x32);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x70);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x87);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x4F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x46);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x05);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x32);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x2D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3118,7 +3395,6 @@ static inline void clkgen_regmap_47(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_48(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 48)
@@ -3140,30 +3416,37 @@ static inline void clkgen_regmap_48(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8A);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x6F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x32);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3175,7 +3458,6 @@ static inline void clkgen_regmap_48(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_49(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 49)
@@ -3198,29 +3480,36 @@ static inline void clkgen_regmap_49(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x60);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xDF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x2E);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x19);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3232,7 +3521,6 @@ static inline void clkgen_regmap_49(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_50(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 50)
@@ -3249,35 +3537,42 @@ static inline void clkgen_regmap_50(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x32);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x70);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x87);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x4F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x46);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x0F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x32);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x2D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3289,7 +3584,6 @@ static inline void clkgen_regmap_50(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_51(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 51)
@@ -3312,29 +3606,36 @@ static inline void clkgen_regmap_51(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x50);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xFF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x6F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x17);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x32);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x04);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3346,7 +3647,6 @@ static inline void clkgen_regmap_51(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_52(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 52)
@@ -3369,7 +3669,8 @@ static inline void clkgen_regmap_52(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
@@ -3380,18 +3681,24 @@ static inline void clkgen_regmap_52(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0D);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3403,7 +3710,6 @@ static inline void clkgen_regmap_52(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_53(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 53)
@@ -3420,35 +3726,42 @@ static inline void clkgen_regmap_53(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x32);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x70);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x87);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x4F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x46);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x66);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x07);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x32);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x2D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3460,7 +3773,6 @@ static inline void clkgen_regmap_53(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_54(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 54)
@@ -3483,29 +3795,36 @@ static inline void clkgen_regmap_54(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x60);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x7F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xDF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x2E);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x19);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3517,7 +3836,6 @@ static inline void clkgen_regmap_54(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_55(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 55)
@@ -3540,6 +3858,7 @@ static inline void clkgen_regmap_55(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -3559,10 +3878,16 @@ static inline void clkgen_regmap_55(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3574,7 +3899,6 @@ static inline void clkgen_regmap_55(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_56(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 56)
@@ -3591,35 +3915,42 @@ static inline void clkgen_regmap_56(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x002C, 0x32);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002D, 0x04);
         clkgen_regmap_write(mp->clkgen_regmap, 0x002E, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0030, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0036, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8A);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0218, 0x01);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0xA0);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0238, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0239, 0x87);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0xBF);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x9F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x8C);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0xB3);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x03);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x32);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x2D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3631,7 +3962,6 @@ static inline void clkgen_regmap_56(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_57(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 57)
@@ -3654,7 +3984,8 @@ static inline void clkgen_regmap_57(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
@@ -3665,18 +3996,24 @@ static inline void clkgen_regmap_57(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x1F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0xBF);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x5D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0xBB);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x0D);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3688,7 +4025,6 @@ static inline void clkgen_regmap_57(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_58(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 58)
@@ -3710,7 +4046,8 @@ static inline void clkgen_regmap_58(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -3721,7 +4058,7 @@ static inline void clkgen_regmap_58(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x3F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
@@ -3730,10 +4067,16 @@ static inline void clkgen_regmap_58(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x43);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3745,7 +4088,6 @@ static inline void clkgen_regmap_58(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_59(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 59)
@@ -3767,8 +4109,9 @@ static inline void clkgen_regmap_59(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0038, 0x8B);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0212, 0x01);
@@ -3778,19 +4121,25 @@ static inline void clkgen_regmap_59(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x023A, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023D, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x023E, 0x80);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x2F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0250, 0x02);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0253, 0x5F);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0254, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x3F);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x19);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025C, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x025F, 0x7F);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0260, 0x32);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x00);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x5A);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x2D);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3802,7 +4151,6 @@ static inline void clkgen_regmap_59(struct mp2019_codec_priv *mp)
 
 static inline void clkgen_regmap_60(struct mp2019_codec_priv *mp)
 {
-    
     enable_DFXO_49152(mp);
 
     if(mp->current_regmap != 60)
@@ -3825,6 +4173,7 @@ static inline void clkgen_regmap_60(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0041, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0042, 0x05);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0112, 0x06);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x011A, 0x08);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0126, 0x06);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0208, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x020E, 0x00);
@@ -3844,10 +4193,16 @@ static inline void clkgen_regmap_60(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0261, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0305, 0x80);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0306, 0x86);
-        clkgen_regmap_write(mp->clkgen_regmap, 0x0307, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0310, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0311, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0312, 0x00);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0316, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x090E, 0x00);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0949, 0x02);
         clkgen_regmap_write(mp->clkgen_regmap, 0x094A, 0x20);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A03, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0A05, 0x01);
+        clkgen_regmap_write(mp->clkgen_regmap, 0x0B4A, 0x0E);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B57, 0x07);
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B58, 0x01);
         clkgen_regmap_write(mp->clkgen_regmap, 0x001C, 0x01);
@@ -3855,3 +4210,5 @@ static inline void clkgen_regmap_60(struct mp2019_codec_priv *mp)
         clkgen_regmap_write(mp->clkgen_regmap, 0x0B25, 0x02);
     }
 }
+
+

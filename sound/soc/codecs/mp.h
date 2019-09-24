@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
 /*
- * definitions for MP2019
+ * mp.h - definitions for MP2019
  *
  * Copyright 2019 Welsh Technologies
  */
@@ -8,8 +8,9 @@
 #ifndef __MP2019_H__
 #define __MP2019_H__
 
-#define MP2019_FORMATS (SNDRV_PCM_FMTBIT_S24_LE | SNDRV_PCM_FMTBIT_S32_LE)
+#define MP2019_FORMATS (SNDRV_PCM_FMTBIT_S32_LE | SNDRV_PCM_FMTBIT_S24_LE)
 /*
+#define MP2019_FORMATS (SNDRV_PCM_FMTBIT_S24_LE | SNDRV_PCM_FMTBIT_S32_LE)
 	remove 16 to force 24 / 32 bit conversion ** SNDRV_PCM_FMTBIT_S16_LE | \
 */
 
@@ -32,14 +33,13 @@ int mp2019_common_init(struct device *dev, struct regmap *regmap);
 #include <sound/soc.h>
 #include "mp_clkgen.h"
 
-static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
+static inline int update_playback_OCXO(struct snd_soc_component *component, int frame_rate,
 									   int frame_width)
 {
-	int nextFamily;
-	struct snd_soc_component *component = dai->component;
+	int nextFamily = 0;
 	struct mp2019_codec_priv *mp = snd_soc_component_get_drvdata(component);
 
-	pr_warn("update_playback_OCXO %d %d", frame_rate, frame_width);
+	dev_dbg(component->dev, "update_playback_OCXO %d %d", frame_rate, frame_width);
 	regmap_write(mp->lcd_regmap, 0x01, frame_rate);
 	regmap_write(mp->lcd_regmap, 0x02, frame_width);
 
@@ -231,34 +231,55 @@ static inline int update_playback_OCXO(struct snd_soc_dai *dai, int frame_rate,
 		return -EINVAL;
 	}
 
+	pr_warn("* AES SETUP ");
+	pr_warn(" * %d", frame_rate);
+	pr_warn(" * %d", frame_width);
 	if(nextFamily != mp->family) {
+		pr_warn(" * nextFamily != mp->family ");
 
-		regmap_write(mp->aes_regmap, 0x03, 0x83);
 		switch (nextFamily)
 		{
 		case 48:
+			pr_warn("    44.1 / 48: 0x03, 0x33, then 0x37");
+			regmap_write(mp->aes_regmap, 0x03, 0x33);
+			msleep(10);
 			regmap_write(mp->aes_regmap, 0x03, 0x37);
 			break;
 		case 96:
+			pr_warn("    88.2 / 96: 0x03, 0x13, then 0x17");
+			regmap_write(mp->aes_regmap, 0x03, 0x13);
+			msleep(10);
 			regmap_write(mp->aes_regmap, 0x03, 0x17);
 			break;
 		case 192:
+			pr_warn("    176.8 / 192: 0x03, 0x03, then 0x07");
+			regmap_write(mp->aes_regmap, 0x03, 0x03);
+			msleep(10);
 			regmap_write(mp->aes_regmap, 0x03, 0x07);
 			break;
+		default:
+			pr_warn("    AES nextFamily: %d", nextFamily);
+			break;
 		}
-		mp->family = nextFamily;	
+
+		pr_warn("    AES nextFamily: %d", nextFamily);
+		mp->family = nextFamily;
+		pr_warn("    AES mp->family: %d", mp->family);
+
 	}
+
 	return 0;
 }
 
-static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
-									   int frame_width)
+static inline int update_playback_DFXO(struct snd_soc_component *component,
+									   int frame_rate, int frame_width)
 {
-	struct snd_soc_component *component = dai->component;
+	int nextFamily;
 	struct mp2019_codec_priv *mp = snd_soc_component_get_drvdata(component);
 	switch (frame_rate)
 	{
 	case 44100:
+		nextFamily = 48;
 		switch (frame_width)
 		{
 		case 16:
@@ -276,6 +297,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 48000:
+		nextFamily = 48;
 		switch (frame_width)
 		{
 		case 16:
@@ -293,6 +315,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 88200:
+		nextFamily = 96;
 		switch (frame_width)
 		{
 		case 16:
@@ -310,6 +333,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 96000:
+		nextFamily = 96;
 		switch (frame_width)
 		{
 		case 16:
@@ -327,6 +351,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 176400:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -344,6 +369,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 192000:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -361,6 +387,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 352800:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -378,6 +405,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 384000:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -395,6 +423,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 705600:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -412,6 +441,7 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		}
 		break;
 	case 768000:
+		nextFamily = 192;
 		switch (frame_width)
 		{
 		case 16:
@@ -432,6 +462,22 @@ static inline int update_playback_DFXO(struct snd_soc_dai *dai, int frame_rate,
 		dev_err(component->dev, "frame rate %d not supported\n",
 				frame_rate);
 		return -EINVAL;
+	}
+	if(nextFamily != mp->family) {
+		regmap_write(mp->aes_regmap, 0x03, 0x83);
+		switch (nextFamily)
+		{
+		case 48:
+			regmap_write(mp->aes_regmap, 0x03, 0x37);
+			break;
+		case 96:
+			regmap_write(mp->aes_regmap, 0x03, 0x17);
+			break;
+		case 192:
+			regmap_write(mp->aes_regmap, 0x03, 0x07);
+			break;
+		}
+		mp->family = nextFamily;	
 	}
 	return 0;
 }

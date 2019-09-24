@@ -16,6 +16,8 @@ struct mp2019_codec_priv {
 	int fmt;
 	int current_clock;
 	int current_regmap;
+    int frame_rate;
+    int frame_width;
     int family; /* 0 = 44.1, 1 = 48 */
 	struct regmap *clkgen_regmap;
 	struct regmap *oscsel_regmap;
@@ -86,9 +88,11 @@ static inline void clkgen_regmap_write(struct regmap *regmap, unsigned int reg, 
 
 /* default value of I2C registers for AES */
 static const struct reg_default mp2019_aes_reg_defaults[] = {
-		{ 0x06,		0xff },
-        { 0x07,		0x7f },
+		{ 0x06,		0x00 },
+        { 0x07,		0x08 },
         { 0x02,     0x49 },
+        { 0x03,     0x83 }, /* LED OFF + RST */
+        { 0x03,     0x03 }, /* LED ON + RST */
 };
 
 /* default value of I2C registers for OSCSEL */

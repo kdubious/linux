@@ -11,9 +11,98 @@
 	model = "Toradex Colibri iMX7D 1GB (eMMC) on Colibri Evaluation Board V3";
 	compatible = "toradex,colibri-imx7d-emmc-eval-v3",
 		     "toradex,colibri-imx7d-emmc", "fsl,imx7d";
+	
+	sound_mp {
+		compatible = "simple-audio-card";
+		simple-audio-card,name = "Musica Pristina Digital Output";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,bitclock-master = <&mp_master>;
+		simple-audio-card,frame-master = <&mp_master>;
+		simple-audio-card,cpu {
+			sound-dai = <&sai2>;
+		};
+
+		mp_master: simple-audio-card,codec {
+			sound-dai = <&codec_mp>;
+		};
+	};
+};
+
+/* Kill default sound card. */
+//&codec: sgtl5000@0a {
+&codec {
+	status = "disabled";
 };
 
 &usbotg2 {
 	vbus-supply = <&reg_usbh_vbus>;
 	status = "okay";
+};
+
+&i2c4 {
+	status = "okay";
+	codec_mp: mp_clkgen@75 {
+		compatible = "mp,mp-clkgen";
+		#sound-dai-cells = <0>;
+		reg = <0x75>;
+	};
+	codec_oscsel: mp_oscsel@41 {
+		compatible = "mp,codec-oscsel";
+		mp,clkgen = <&codec_mp>;
+		reg = <0x41>;
+	};
+	codec_aes: mp_aes@20 {
+		compatible = "mp,codec-aes";
+		mp,clkgen = <&codec_mp>;
+		reg = <0x20>;
+	};
+	codec_lcd: mp_lcd@76 {
+		compatible = "mp,codec-lcd";
+		mp,clkgen = <&codec_mp>;
+		reg = <0x76>;
+	};
+};
+
+&sai2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_sai2>;
+	status = "okay";
+};
+
+
+
+/* Disable uart1 since its pins overlap with sai2 pins. */
+// &uart1 {
+// 	status = "disabled";
+// };
+
+&uart1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart1>;
+	assigned-clocks = <&clks IMX7D_UART1_ROOT_SRC>;
+	assigned-clock-parents = <&clks IMX7D_OSC_24M_CLK>;
+	// uart-has-rtscts; KILL THIS PROPERTY since we are stealing the pins for I2S
+	fsl,dte-mode;
+};
+
+/* Disable uart2 since its pins overlap with sai2 pins. */
+&uart2 {
+	status = "disabled";
+};
+
+&iomuxc {
+	pinctrl_sai2: sai2-grp {
+		fsl,pins = <
+			MX7D_PAD_SAI2_TX_BCLK__SAI2_TX_BCLK		0x1f
+			MX7D_PAD_SAI2_TX_SYNC__SAI2_TX_SYNC		0x1f
+			MX7D_PAD_SAI2_TX_DATA__SAI2_TX_DATA0	0
+		>;
+	};
+
+	pinctrl_uart1: uart1-grp {
+		fsl,pins = <
+			MX7D_PAD_UART1_TX_DATA__UART1_DTE_RX	0x79
+			MX7D_PAD_UART1_RX_DATA__UART1_DTE_TX	0x79
+		>;
+	};
 };

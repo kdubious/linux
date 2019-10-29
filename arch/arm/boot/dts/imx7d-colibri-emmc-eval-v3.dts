@@ -11,6 +11,21 @@
 	model = "Toradex Colibri iMX7D 1GB (eMMC) on Colibri Evaluation Board V3";
 	compatible = "toradex,colibri-imx7d-emmc-eval-v3",
 		     "toradex,colibri-imx7d-emmc", "fsl,imx7d";
+	
+	sound_mp {
+		compatible = "simple-audio-card";
+		simple-audio-card,name = "Musica Pristina Digital Output";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,bitclock-master = <&mp_master>;
+		simple-audio-card,frame-master = <&mp_master>;
+		simple-audio-card,cpu {
+			sound-dai = <&sai2>;
+		};
+
+		mp_master: simple-audio-card,codec {
+			sound-dai = <&codec_mp>;
+		};
+	};
 };
 
 /* Kill default sound card. */

@@ -28,7 +28,8 @@
 static const unsigned int fsl_sai_rates[] = {
 	8000, 11025, 12000, 16000, 22050,
 	24000, 32000, 44100, 48000, 64000,
-	88200, 96000, 176400, 192000
+	88200, 96000, 176400, 192000,
+	352800, 384000, 705600, 768000
 };
 
 static const struct snd_pcm_hw_constraint_list fsl_sai_rate_constraints = {
